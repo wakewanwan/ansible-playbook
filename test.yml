@@ -7,4 +7,3 @@
     command: date
   - name: Check the eth0 ip on the server.
     command: ifconfig eth0
-EOF
