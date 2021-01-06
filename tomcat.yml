@@ -19,9 +19,9 @@
         owner: root
         group: root
         state: touch
-     - name: add content
-       shell: echo "This is tomcat server" > /usr/share/tomcat/webapps/ROOT/index.html
-     - name: start tomcat service
-       service:
-         name: tomcat
-         state: started
+    - name: add content
+      shell: echo "This is tomcat server" > /usr/share/tomcat/webapps/ROOT/index.html
+    - name: start tomcat service
+      service:
+        name: tomcat
+        state: started
