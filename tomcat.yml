@@ -1,0 +1,27 @@
+---
+- hosts: all
+   remote_user: root
+   gather_facts: false
+   
+   tasks:
+     - name: Install jdk1.8
+       yum:
+         name: tomcat
+         state: present
+      - name: create directory
+        file:
+          path: /usr/share/tomcat/webapps/ROOT
+          state: directory
+      - name: touch index.html
+        file:
+          path: /usr/share/tomcat/webapps/ROOT/index.html
+          mode: 0644
+          owner: root
+          group: root
+          state: touch
+       - name: add content
+         shell: echo "This is tomcat server" > /usr/share/tomcat/webapps/ROOT/index.html
+       - name: start tomcat service
+         service:
+           name: tomcat
+           state: started
